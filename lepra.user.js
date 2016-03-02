@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       Lepra
 // @namespace  q.alexander.feedly.shorpy
-// @version    0.2
+// @version    0.3
 // @description  Miscellaneous improvements
 // @match      http://leprosorium.ru/*
 // @match      http://*.leprosorium.ru/*
@@ -20,7 +20,7 @@
     style.type = 'text/css';
     console.log('styles');
     style.innerHTML =
-        '.post img {opacity: 0.1;} .post:hover img {opacity: 1;}';
+        '.post img, .c_body img {opacity: 0.1;} .post:hover img, .c_body:hover img {opacity: 1;}';
     head.appendChild(style);
     console.log('styles added');
 })();
