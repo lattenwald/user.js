@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       Shorpy large images at Feedly
 // @namespace  q.alexander.feedly.shorpy
-// @version    0.5
+// @version    0.6
 // @description  Replace small Shorpy.com previews with large images in Feedly
 // @match      http://feedly.com/*
 // @match      https://feedly.com/*
@@ -16,7 +16,7 @@
   style = document.createElement('style');
   style.type = 'text/css';
   style.innerHTML =
-    '.condensed .entryholder .u100Entry {margin-left: 20px !important; margin-right: 0 !important; max-width: none !important;}' +
+    '.entryholder .u100Entry {margin-left: 20px !important; margin-right: 0 !important; max-width: none !important;}' +
       '.content img[style] {max-height: 650px !important; height: auto !important; max-width: 100% !important; width: auto !important; }' +
     '.entryBody a {font-weight: normal !important;}' +
     'div .fx-button.primary.small {background-color: #aaa !important;}' +
