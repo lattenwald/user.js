@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name       Style modifications for inoreader.com
+// @name       Style modifications for inoreader.com with support for bigger images from shorpy.com
 // @namespace  q.alexander.inoreader
-// @version    0.1
+// @version    0.2
 // @description  Minor style changes
 // @match      http://www.inoreader.com/*
 // @match      https://www.inoreader.com/*
@@ -20,3 +20,15 @@
   head.appendChild(style);
   console.log('styles added');
 })();
+
+document.addEventListener("DOMNodeInserted", function (e) {
+    $(e.relatedNode)
+        .find('img[src^="http://www.shorpy.com/files/images/"]')
+        .each(function(idx, el) {
+        var s = el.src;
+        var n = s.replace('.preview.jpg', '.jpg');
+        if(s == n) {return;}
+        console.log("Replacing image url " + s + " with " + n);
+        el.src = n;
+    });
+}, false);
