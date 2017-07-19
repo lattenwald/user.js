@@ -22,17 +22,6 @@
 })();
 
 document.addEventListener("DOMNodeInserted", function (e) {
-  // Shorpy previews -> large images
-  $(e.relatedNode)
-    .find('img[src^="http://www.shorpy.com/files/images/"]')
-    .each(function(idx, el) {
-      var s = el.src;
-      var n = s.replace('.preview.jpg', '.jpg');
-      if(s == n) {return;}
-      console.log("Replacing image url " + s + " with " + n);
-      el.src = n;
-    });
-
   // Uploadvr icons -> images
   $(e.relatedNode)
     .find('img[src^="https://uploadvr.com/wp-content/uploads/"]')
