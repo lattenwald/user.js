@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       Style modifications for inoreader.com with support for bigger images from shorpy.com
 // @namespace  q.alexander.inoreader
-// @version    0.5.1
+// @version    0.6
 // @description  Minor style changes
 // @match      http://www.inoreader.com/*
 // @match      https://www.inoreader.com/*
@@ -28,6 +28,16 @@ document.addEventListener("DOMNodeInserted", function (e) {
     .each(function(idx, el) {
       var s = el.src;
       var n = s.replace(/-\d+x\d+.([^\.]+)$/, '.$1');
+      if (s == n) {return;}
+      console.log("Replacing image url " + s + " with " + n);
+      el.src = n;
+    });
+
+  $(e.relatedNode)
+    .find('img[src^="http://www.shorpy.com/files/images/"]')
+    .each(function(idx, el) {
+      var s = el.src;
+      var n = s.replace('.preview.jpg', '.jpg').replace(/^http:/, 'https:');
       if (s == n) {return;}
       console.log("Replacing image url " + s + " with " + n);
       el.src = n;
