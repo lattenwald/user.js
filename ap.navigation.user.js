@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Apps list navigation for AndroidPolice
 // @namespace    q.alexander.androidpolice.navigation
-// @version      0.4
+// @version      0.4.1
 // @description  enter something useful
 // @author       You
 // @match        http://www.androidpolice.com/*
+// @match        https://www.androidpolice.com/*
 // @grant        none
 // ==/UserScript==
 
@@ -25,7 +26,7 @@
                 if (nextPage) {
                     url = nextPage;
                 } else {
-                	idx = 0;
+                    idx = 0;
                 }
             }
             doit = true;
@@ -46,8 +47,8 @@
                 console.log('going to ' + url);
                 document.location.href = url;
             } else {
-            	console.log('scrolling to ' + idx);
-            	jQuery('html, body').animate({
+                console.log('scrolling to ' + idx);
+                jQuery('html, body').animate({
 	                scrollTop: jQuery(h3s[idx]).offset().top
 	            }, 500);
             }
