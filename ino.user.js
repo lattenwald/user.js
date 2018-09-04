@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name       Shorpy large images at Feedly
-// @namespace  q.alexander.feedly.shorpy
-// @version    0.7.1
-// @description  Replace small Shorpy.com previews with large images in Feedly
-// @match      http://feedly.com/*
-// @match      https://feedly.com/*
-// @copyright  2014+, Alexaner Q
+// @name       Style modifications for inoreader.com with support for bigger images from shorpy.com
+// @namespace  q.alexander.inoreader
+// @version    0.7.2
+// @description  Minor style changes
+// @match      http://www.inoreader.com/*
+// @match      https://www.inoreader.com/*
+// @copyright  2017+, Alexaner Q
 // @grant none
 // ==/UserScript==
 
@@ -16,21 +16,30 @@
   style = document.createElement('style');
   style.type = 'text/css';
   style.innerHTML =
-    '.entryholder .u100Entry {margin-left: 20px !important; margin-right: 0 !important; max-width: none !important;}' +
-    '.content img[style] {max-height: 650px !important; height: auto !important; max-width: 100% !important; width: auto !important; }' +
-    '.entryBody a {font-weight: normal !important;}' +
-    'button.pro.primary.small {background-color: #aaa !important;}' +
-    'div .entryBody {max-width: 100% !important;}';
+    '#sb_rp_upgrade_button {background-color: #efefef !important; border-color: #efefef !important;}';
   head.appendChild(style);
   console.log('styles added');
 })();
 
-document.addEventListener("DOMNodeInserted", function (ev) {
-  var el = document.querySelector('img[data-original^="http://www.shorpy.com/files/images/"]');
-  if(!el) {return;}
-  var s = el.getAttribute('data-original');
-  var n = s.replace('.preview.jpg', '.jpg');
-  if(s == n) {return;}
-  console.log("Replacing image url " + s + " with " + n);
-  el.setAttribute('src', n);
+document.addEventListener("DOMNodeInserted", function (e) {
+  // Uploadvr icons -> images
+  $(e.relatedNode)
+    .find('img[src^="https://uploadvr.com/wp-content/uploads/"]')
+    .each(function(idx, el) {
+      var s = el.src;
+      var n = s.replace(/-\d+x\d+.([^\.]+)$/, '.$1');
+      if (s == n) {return;}
+      console.log("Replacing image url " + s + " with " + n);
+      el.src = n;
+    });
+
+  $(e.relatedNode)
+    .find('img[src^="http://www.shorpy.com/files/images/"]')
+    .each(function(idx, el) {
+      var s = el.src;
+      var n = s.replace('.preview.jpg', '.jpg').replace(/^http:/, 'https:');
+      if (s == n) {return;}
+      console.log("Replacing image url " + s + " with " + n);
+      el.src = n;
+    });
 }, false);
