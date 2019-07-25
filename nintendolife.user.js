@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Apps list navigation for NintendoLife
 // @namespace    q.alexander.nintendolife.navigation
-// @version      0.1.1
+// @version      0.1.2
 // @description  enter something useful
 // @author       You
 // @match        https://www.nintendolife.com/*
@@ -10,7 +10,7 @@
 
 //window.addEventListener('load', function() {
 (function(){
-    var h2s = jQuery('section.text>h2').prev();
+    var h2s = jQuery('div.list>div.list-item').prev();
     var idx = -1;
     jQuery(document).keypress(function(e){
         var doit=false;
