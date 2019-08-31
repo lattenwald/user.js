@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Reelmagic downloader command generator
 // @namespace    q.alexander.reelmagic.dl
-// @version      0.1
+// @version      0.2
 // @author       Alexander Q <qalexx@gmail.com>
 // @match        https://reelmagicmagazine.com/*
 // @grant        none
