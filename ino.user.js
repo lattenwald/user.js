@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       Style modifications for inoreader.com with support for bigger images from shorpy.com
 // @namespace  q.alexander.inoreader
-// @version    0.7.7
+// @version    0.7.8
 // @description  Minor style changes
 // @match      http://www.inoreader.com/*
 // @match      https://www.inoreader.com/*
@@ -24,12 +24,12 @@
 
   var metaref = $('meta[name=referrer]');
   if (metaref.length) {
-    metaref.attr('content', 'default');
+    metaref.attr('content', 'never');
     console.log('meta referrer modified');
   } else {
     var meta = document.createElement('meta');
     meta.name = 'referrer';
-    meta.content = 'default';
+    meta.content = 'never';
     head.appendChild(meta);
     console.log('meta referrer added');
   }
