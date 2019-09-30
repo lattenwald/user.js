@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       Style modifications for inoreader.com with support for bigger images from shorpy.com
 // @namespace  q.alexander.inoreader
-// @version    0.7.6
+// @version    0.7.7
 // @description  Minor style changes
 // @match      http://www.inoreader.com/*
 // @match      https://www.inoreader.com/*
@@ -21,6 +21,18 @@
     '#sb_rp_upgrade_button {background-color: #efefef !important; border-color: #efefef !important;}';
   head.appendChild(style);
   console.log('styles added');
+
+  var metaref = $('meta[name=referrer]');
+  if (metaref.length) {
+    metaref.attr('content', 'default');
+    console.log('meta referrer modified');
+  } else {
+    var meta = document.createElement('meta');
+    meta.name = 'referrer';
+    meta.content = 'default';
+    head.appendChild(meta);
+    console.log('meta referrer added');
+  }
 })();
 
 document.addEventListener("DOMNodeInserted", function(e) {
