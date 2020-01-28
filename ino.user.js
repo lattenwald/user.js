@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       Style modifications for inoreader.com with support for bigger images from shorpy.com
 // @namespace  q.alexander.inoreader
-// @version    0.7.8
+// @version    0.8.0
 // @description  Minor style changes
 // @match      http://www.inoreader.com/*
 // @match      https://www.inoreader.com/*
@@ -18,7 +18,8 @@
   style = document.createElement('style');
   style.type = 'text/css';
   style.innerHTML =
-    '#sb_rp_upgrade_button {background-color: #efefef !important; border-color: #efefef !important;}';
+    '#sb_rp_upgrade_button {background-color: #efefef !important; border-color: #efefef !important;} '
+    + '.article_content img {max-height: -webkit-fill-available !important; max-width: -webkit-fill-available !important;}'
   head.appendChild(style);
   console.log('styles added');
 
@@ -60,4 +61,11 @@ document.addEventListener("DOMNodeInserted", function(e) {
       console.log("Replacing image url " + s + " with " + n);
       el.src = n;
     });
+
+  /* var isOpennet = e.relatedNode.classList.contains('mobilized') && $(e.relatedNode).parent().find('.article_sub_title .article_author a[href*="opennet"]').size() && !e.relatedNode.classList.contains('unicode');
+   * if (isOpennet) {
+   *   console.log('need to recode')
+   *   e.relatedNode.className += " unicode";
+   *   e.relatedNode.innerHTML = koi8r.decode(e.relatedNode.innerHTML);
+   * }*/
 }, false);
