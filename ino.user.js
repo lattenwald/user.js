@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       Style modifications for inoreader.com with support for bigger images from shorpy.com
 // @namespace  q.alexander.inoreader
-// @version    0.8.1
+// @version    0.8.2
 // @description  Minor style changes
 // @match      http://www.inoreader.com/*
 // @match      https://www.inoreader.com/*
@@ -32,9 +32,9 @@
 document.addEventListener("DOMNodeInserted", function(e) {
   // Uploadvr icons -> images
   $(e.relatedNode)
-    .find('img[src^="https://uploadvr.com/wp-content/uploads/"]')
+    .find('img[data-original-src^="https://uploadvr.com/wp-content/uploads/"]')
     .each(function(idx, el) {
-      var s = el.src;
+      var s = el.getAttribute('data-original-src');
       var n = s.replace(/-\d+x\d+.([^\.]+)$/, '.$1');
       if (s == n) {
         return;
@@ -43,6 +43,7 @@ document.addEventListener("DOMNodeInserted", function(e) {
       el.src = n;
     });
 
+  // Shorpy bigger images
   $(e.relatedNode)
     .find('img[data-original-src*="https://www.shorpy.com/files/images/"]')
     .each(function(idx, el) {
