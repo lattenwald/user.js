@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         Apps list navigation for NintendoLife
 // @namespace    q.alexander.nintendolife.navigation
-// @version      0.2.1
+// @version      0.2.2
 // @description  enter something useful
 // @author       You
 // @match        https://www.nintendolife.com/*
 // @grant        none
+// @require https://code.jquery.com/jquery-3.4.1.min.js
 // ==/UserScript==
 
 //window.addEventListener('load', function() {
