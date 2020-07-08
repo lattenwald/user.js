@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       Style modifications for inoreader.com with support for bigger images from shorpy.com
 // @namespace  q.alexander.inoreader
-// @version    0.8.2
+// @version    0.8.3
 // @description  Minor style changes
 // @match      http://www.inoreader.com/*
 // @match      https://www.inoreader.com/*
@@ -10,7 +10,7 @@
 // ==/UserScript==
 
 (function() {
-  var head, style;
+  var head;
   head = document.getElementsByTagName('head')[0];
   if (!head) {
     return;
@@ -33,7 +33,7 @@ document.addEventListener("DOMNodeInserted", function(e) {
   // Uploadvr icons -> images
   $(e.relatedNode)
     .find('img[data-original-src^="https://uploadvr.com/wp-content/uploads/"]')
-    .each(function(idx, el) {
+    .each(function(_idx, el) {
       var s = el.getAttribute('data-original-src');
       var n = s.replace(/-\d+x\d+.([^\.]+)$/, '.$1');
       if (s == n) {
@@ -46,7 +46,7 @@ document.addEventListener("DOMNodeInserted", function(e) {
   // Shorpy bigger images
   $(e.relatedNode)
     .find('img[data-original-src*="https://www.shorpy.com/files/images/"]')
-    .each(function(idx, el) {
+    .each(function(_idx, el) {
       var s = el.getAttribute('data-original-src');
       var n = s.replace(/^.*(www\.shorpy\.com.*)\.preview(\.\w+).*$/, "https://$1$2");
       if (el.src == n) {
@@ -54,5 +54,17 @@ document.addEventListener("DOMNodeInserted", function(e) {
       }
       console.log("Replacing image url " + s + " with " + n);
       el.src = n;
+    });
+
+  // LiveJournal uncensor
+  $(e.relatedNode)
+    .find('img[data-original-src*="https://ic.pics.livejournal.com/"]')
+    .each(function(_idx, el) {
+      var s = el.getAttribute('data-original-src');
+      if (el.src == s) {
+        return;
+      }
+      console.log("Replacing image url " + el.src + " with " + s);
+      el.src = s;
     });
 }, false);
