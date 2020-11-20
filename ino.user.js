@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       Style modifications for inoreader.com with support for bigger images from shorpy.com
 // @namespace  q.alexander.inoreader
-// @version    0.8.3
+// @version    0.8.4
 // @description  Minor style changes
 // @match      http://www.inoreader.com/*
 // @match      https://www.inoreader.com/*
@@ -59,6 +59,18 @@ document.addEventListener("DOMNodeInserted", function(e) {
   // LiveJournal uncensor
   $(e.relatedNode)
     .find('img[data-original-src*="https://ic.pics.livejournal.com/"]')
+    .each(function(_idx, el) {
+      var s = el.getAttribute('data-original-src');
+      if (el.src == s) {
+        return;
+      }
+      console.log("Replacing image url " + el.src + " with " + s);
+      el.src = s;
+    });
+
+  // Original images for vrfocus
+  $(e.relatedNode)
+    .find('img[data-original-src*="https://www.vrfocus.com/wp-content/uploads/"]')
     .each(function(_idx, el) {
       var s = el.getAttribute('data-original-src');
       if (el.src == s) {
