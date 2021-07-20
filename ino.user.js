@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       Style modifications for inoreader.com with support for bigger images from shorpy.com
 // @namespace  q.alexander.inoreader
-// @version    0.8.4
+// @version    0.8.5
 // @description  Minor style changes
 // @match      http://www.inoreader.com/*
 // @match      https://www.inoreader.com/*
@@ -78,5 +78,12 @@ document.addEventListener("DOMNodeInserted", function(e) {
       }
       console.log("Replacing image url " + el.src + " with " + s);
       el.src = s;
+    });
+
+  // Iframe height for embedded twitter posts
+  $(e.relatedNode)
+    .find('iframe[src^="https://platform.twitter.com/embed/"]')
+    .each(function(_idx, el) {
+      el.height = '650px';
     });
 }, false);
