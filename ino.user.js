@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       Style modifications for inoreader.com with support for bigger images from shorpy.com
 // @namespace  q.alexander.inoreader
-// @version    0.8.5
+// @version    0.8.6
 // @description  Minor style changes
 // @match      http://www.inoreader.com/*
 // @match      https://www.inoreader.com/*
@@ -86,4 +86,10 @@ document.addEventListener("DOMNodeInserted", function(e) {
     .each(function(_idx, el) {
       el.height = '650px';
     });
+
+  // AndroidPolice hide non-functional image galleries
+  $(e.relatedNode)
+    .find('strong:contains("Image Gallery")')
+    .parent()
+    .css('display', 'none');
 }, false);
