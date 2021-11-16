@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Photos navigation for varlamov.ru
 // @namespace    q.alexander.varlamov.navigation
-// @version      0.1.0
+// @version      0.1.1
 // @description  enter something useful
 // @author       You
 // @match        https://varlamov.ru/*
