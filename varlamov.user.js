@@ -15,7 +15,6 @@
   console.log("found " + imgs.length + " images");
   jQuery(document).keypress(function(e){
     var doit=false;
-    var url=false;
     if (e.which == 106 || e.which == 1086) { //next
       idx++;
       if (idx >= imgs.length) {
