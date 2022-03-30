@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         gplay apps list
 // @namespace    q.alexander.kribrum.builder
-// @version      0.1
+// @version      0.2
 // @description  Copy developer's apps list in JSON format to clipboard
 // @author       You
-// @match        https://play.google.com/store/apps/collection/cluster?*
+// @match        https://play.google.com/*
 // @grant        none
 // @require https://code.jquery.com/jquery-3.4.1.min.js
 // ==/UserScript==
