@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Instagram get user id
 // @namespace    q.alexander.igid
-// @version      0.1
+// @version      0.2
 // @description  Copy instagram user id or userid with username to clipboard
 // @author       Q
 // @match        https://www.instagram.com/*
@@ -21,7 +21,11 @@ function copyToClipboard(text) {
   'use strict';
 
   jQuery(document).keypress(function(e){
-    if(e.keyCode == 113) {
+    if(e.keyCode == 105) {
+      var user = window._sharedData.entry_data.ProfilePage[0].graphql.user;
+      copyToClipboard(user.id)
+      alert("userid copied to clipboard")
+    } else if(e.keyCode == 113) {
       var user = window._sharedData.entry_data.ProfilePage[0].graphql.user;
       var str = "{<<\"" + user.id + "\">>, <<\"" + user.username + "\">>}"
       copyToClipboard(str);
