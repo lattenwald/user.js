@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Apps list navigation for AndroidPolice
 // @namespace    q.alexander.androidpolice.navigation
-// @version      0.5.1
+// @version      0.6
 // @description  something useful
 // @author       You
 // @match        http://www.androidpolice.com/*
@@ -12,6 +12,14 @@
 
 //window.addEventListener('load', function() {
 (function(){
+  var head, style;
+  head = document.getElementsByTagName('head')[0];
+  style = document.createElement('style')
+  style.type = 'text/css';
+  style.innerHTML =
+    '#article-directory-list-cta {opacity: 0.2;} #article-directory-list-cta:hover {opacity: 1;}';
+  head.appendChild(style);
+
   var items = jQuery('section#article-body h3,section#article-body h2')
   var idx = -1;
   jQuery(document).keypress(function(e){
