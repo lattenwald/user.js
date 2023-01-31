@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Apps list navigation for AndroidAuthority
 // @namespace    q.alexander.androidpolice.navigation
-// @version      0.1
+// @version      0.1.1
 // @description  AndroidAuthority stuff
 // @author       You
 // @match        http://www.androidauthority.com/*
@@ -34,7 +34,7 @@
         }
         if (doit) {
             console.log('scrolling to ' + idx);
-            items[idx].scrollIntoView({block: 'end', bevahior: 'smooth'});
+            items[idx].scrollIntoView({behavior: "smooth", block: "start"});
         }
     }
 })();
