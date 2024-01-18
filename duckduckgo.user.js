@@ -4,7 +4,7 @@
 // @match https://duckduckgo.com/?*
 // @grant none
 // @run-at document-end
-// @version 0.1
+// @version 0.1.1
 // @description Adds Google and Yandex links with current query used at DuckDuckGo (for faster and more comfortable way to check alternative search results)
 // ==/UserScript==
 
@@ -20,9 +20,9 @@ setTimeout(function() {
   glink.style.padding = '0 0.5em';
 
   var glink2 = glink.cloneNode();
-  glink2.innerHTML = 'Google';
+  glink2.innerHTML = 'G';
   glink2.style.position = 'fixed';
-  glink2.style.right = "110px";
+  glink2.style.right = "10px";
   glink2.style.bottom = "20px";
   glink2.style.zIndex = "11";
   glink2.style.fontSize = "xx-large";
@@ -35,10 +35,10 @@ setTimeout(function() {
   ylink.style.padding = '0 0.5em';
 
   var ylink2 = ylink.cloneNode();
-  ylink2.innerHTML = 'Yandex';
+  ylink2.innerHTML = 'Y';
   ylink2.style.position = 'fixed';
-  ylink2.style.right = "110px";
-  ylink2.style.bottom = "60px";
+  ylink2.style.right = "50px";
+  ylink2.style.bottom = "20px";
   ylink2.style.zIndex = "11";
   ylink2.style.fontSize = "xx-large";
 
