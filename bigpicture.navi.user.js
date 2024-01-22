@@ -5,7 +5,7 @@
 // @include     https://www.bostonglobe.com/news/bigpicture/*
 // @version     2.1
 // @grant       none
-// @require https://code.jquery.com/jquery-3.2.1.min.js
+// @require https://code.jquery.com/jquery-3.7.1.min.js
 // ==/UserScript==
 
 (function(){

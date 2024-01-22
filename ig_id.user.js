@@ -6,7 +6,7 @@
 // @author       Q
 // @match        https://www.instagram.com/*
 // @grant        none
-// @require https://code.jquery.com/jquery-3.4.1.min.js
+// @require https://code.jquery.com/jquery-3.7.1.min.js
 // ==/UserScript==
 
 function copyToClipboard(text) {

@@ -7,7 +7,7 @@
 // @match        http://www.androidpolice.com/*
 // @match        https://www.androidpolice.com/*
 // @grant        none
-// @require      https://code.jquery.com/jquery-latest.min.js
+// @require      https://code.jquery.com/jquery-3.7.1.min.js
 // ==/UserScript==
 
 //window.addEventListener('load', function() {
