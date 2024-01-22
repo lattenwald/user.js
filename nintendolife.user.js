@@ -6,7 +6,7 @@
 // @author       You
 // @match        https://www.nintendolife.com/*
 // @grant        none
-// @require https://code.jquery.com/jquery-3.4.1.min.js
+// @require https://code.jquery.com/jquery-3.7.1.min.js
 // ==/UserScript==
 
 //window.addEventListener('load', function() {

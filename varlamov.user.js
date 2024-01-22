@@ -6,7 +6,7 @@
 // @author       You
 // @match        https://varlamov.ru/*
 // @grant        none
-// @require      https://code.jquery.com/jquery-latest.min.js
+// @require      https://code.jquery.com/jquery-3.7.1.min.js
 // ==/UserScript==
 
 (function(){
