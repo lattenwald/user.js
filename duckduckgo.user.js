@@ -4,7 +4,7 @@
 // @match https://duckduckgo.com/?*
 // @grant none
 // @run-at document-end
-// @version 0.1.1
+// @version 0.1.2
 // @description Adds Google and Yandex links with current query used at DuckDuckGo (for faster and more comfortable way to check alternative search results)
 // ==/UserScript==
 
@@ -42,9 +42,11 @@ setTimeout(function() {
   ylink2.style.zIndex = "11";
   ylink2.style.fontSize = "xx-large";
 
-  ds.parentNode.appendChild(glink);
+  if(ds) {
+    ds.parentNode.appendChild(glink);
+    ds.parentNode.appendChild(ylink);
+  }
   document.body.appendChild(glink2);
-  ds.parentNode.appendChild(ylink);
   document.body.appendChild(ylink2);
 
   function altSearchKey(e) {
