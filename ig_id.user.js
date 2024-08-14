@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Instagram get user id
 // @namespace    q.alexander.igid
-// @version      0.4
+// @version      0.5
 // @description  Copy instagram user id or userid with username to clipboard
 // @author       Q
 // @match        https://www.instagram.com/*
@@ -22,12 +22,12 @@ function copyToClipboard(text) {
 
   jQuery(document).keypress(function(e){
     if(e.keyCode == 105) {
-      var id = document.body.textContent.match(/"id":"(?<id>\d+)"/)[1];
+      var id = document.body.textContent.match(/"user_id":"(?<id>\d+)"/)[1];
       copyToClipboard(id)
       alert("userid copied to clipboard")
     } else if(e.keyCode == 113) {
-      var id = document.body.textContent.match(/"id":"(?<id>\d+)"/)[1];
-      var username = document.body.textContent.match(/"username":"([^"]+)"/)[1]
+      var id = document.body.textContent.match(/"user_id":"(?<id>\d+)"/)[1];
+      var username = document.body.textContent.match(/{"query":{"username":"([^"]+)"/)[1];
       var str = "./cirq-add -i " + id + " -n " + username + " --cirqs both";
       copyToClipboard(str);
       alert("userid with userlogin in rust format copied to clipboard");
