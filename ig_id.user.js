@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Instagram get user id
 // @namespace    q.alexander.igid
-// @version      0.6
+// @version      0.7
 // @description  Copy instagram user id or userid with username to clipboard
 // @author       Q
 // @match        https://www.instagram.com/*
@@ -10,24 +10,24 @@
 
 function copyToClipboard(text) {
   navigator.clipboard.writeText(text).then(
-    function () {
+    function() {
       console.log("Async: Copying to clipboard was successful!");
     },
-    function (err) {
+    function(err) {
       console.error("Async: Could not copy text: ", err);
     },
   );
 }
 
-(function () {
+(function() {
   "use strict";
 
-  jQuery(document).keypress(function (e) {
-    if (e.keyCode == 105) {
+  document.onkeydown = function(e) {
+    if (e.key == "w") {
       var id = document.body.textContent.match(/"user_id":"(?<id>\d+)"/)[1];
       copyToClipboard(id);
       alert("userid copied to clipboard");
-    } else if (e.keyCode == 113) {
+    } else if (e.key == "q") {
       var id = document.body.textContent.match(/"user_id":"(?<id>\d+)"/)[1];
       var username = document.body.textContent.match(
         /{"query":{"username":"([^"]+)"/,
@@ -36,5 +36,5 @@ function copyToClipboard(text) {
       copyToClipboard(str);
       alert("userid with userlogin in rust format copied to clipboard");
     }
-  });
+  };
 })();
