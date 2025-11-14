@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Unified New Chat – Ctrl+I (Gemini / Claude / Grok)
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  Ctrl+I starts a new chat in Gemini, Claude or Grok – even inside text fields. Perplexity ignored.
 // @author       You
 // @match        https://gemini.google.com/app*
@@ -31,10 +31,8 @@
 
             // ---------- CLAUDE ----------
             } else if (host === 'claude.ai') {
-                const btn = document.querySelector(
-                    'button[data-action="new-chat"], [data-testid="new-chat-button"], button[aria-label*="New chat"]'
-                );
-                if (btn) btn.click();
+                // Use direct /new URL to create a fresh conversation
+                window.location.href = 'https://claude.ai/new';
 
             // ---------- GROK (grok.com) ----------
             } else if (host === 'grok.com') {
