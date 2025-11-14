@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Unified New Chat – Ctrl+I (Gemini / Claude / Grok)
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  Ctrl+I starts a new chat in Gemini, Claude or Grok – even inside text fields. Perplexity ignored.
 // @author       You
 // @match        https://gemini.google.com/app*
@@ -36,8 +36,8 @@
 
             // ---------- GROK (grok.com) ----------
             } else if (host === 'grok.com') {
-                // Grok creates a fresh conversation via /new
-                window.location.href = 'https://grok.com/new';
+                // Grok creates a fresh conversation via /
+                window.location.href = 'https://grok.com/';
             }
 
             // Perplexity is deliberately omitted – nothing happens there
